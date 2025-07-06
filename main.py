@@ -26,6 +26,10 @@ class Record:
 
     def add_phone(self, phone):
         self.phones.append(Phone(phone))
+    
+    def remove_phone(self, phone_to_delete):
+        self.phones = [phone for phone in self.phones if phone.value != phone_to_delete]
+
 
     def edit_phone(self, old_phone, new_phone):
         for index, phone in enumerate(self.phones):
@@ -85,6 +89,8 @@ def main():
     else:
         print("номер не знайдено")
 
+    print(john)
+    john.remove_phone("1112223333")
     print(john)
 
     # Пошук конкретного телефону у записі John
